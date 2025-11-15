@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --cor-principal: #daa38f;
+    --cor-secundaria: #f0e2ce;
+    --cor-destaque: #e60303;
+    --cor-texto: #875e37;
+    --cor-branco: #ffffff;
+    --cor-cinza-claro: #fcfcfc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+ul,
+ol {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--cor-texto);
+    background-color: var(--cor-secundaria);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.cabecalho-principal {
+    position: sticky;
+    top: 0;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    z-index: 100;
+}
+
+.logo-assoc a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--cor-texto);
+    letter-spacing: 2px;
+}
+
+.menu-hamburguer {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--cor-texto);
+}
+
+.navegacao {
+    display: flex;
+    gap: 30px;
+}
+
+.navegacao a {
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--cor-texto);
+    transition: color 0.3s ease;
+}
+
+.navegacao a i:hover {
+    color: var(--cor-destaque);
+}
+
+.scroll-animation {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.scroll-animation.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.capa {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--cor-branco);
+    background-image: url('../imagens/imagemFundo.png');
+    background-size: cover;
+    background-position: center center;
+}
+
+.capa::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.conteudo {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    padding: 20px;
+}
+
+.titulo-principal {
+    font-size: 6rem;
+    font-weight: 300;
+    letter-spacing: 5px;
+    line-height: 1.1;
+    margin-bottom: 0;
+}
+
+.subtitulo {
+    font-size: 1.8rem;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 50px 20px;
+    background-color: var(--cor-cinza-claro);
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2em;
+}
+
+.container-sobre {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container-imagens {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.imagem-2 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+}
+
+.nota-imagem {
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+}
+
+.sobre-conteudo h2 {
+    font-size: 4.5em;
+    font-weight: 400;
+    color: var(--cor-texto);
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.sobre-descricao {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--cor-texto);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.container-projetos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+.container-projetos figure {
+    background-color: var(--cor-branco);
+    border-radius: 10px;
+    padding: 15px;
+    max-width: 240px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.container-projetos figure:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.oficinas-header {
+    text-align: center;
+}
+
+.oficinas-galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.oficinas-galeria img {
+    width: 180px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.oficinas-galeria img:hover {
+    transform: scale(1.05);
+}
+
+.biblioteca {
+    padding: 60px 10%;
+    background-color: #f9f9f9;
+}
+
+.container-biblioteca {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+
+.biblioteca-texto {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.biblioteca-texto h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#contato {
+    padding: 60px 10%;
+    background-color: var(--cor-cinza-claro);
+}
+
+.contato-container {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form-contato {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-contato input,
+.form-contato textarea {
+    padding: 12px 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    resize: vertical;
+    transition: 0.2s;
+}
+
+.form-contato button {
+    background-color: var(--cor-destaque);
+    padding: 10px 25px;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    align-self: center;
+}
+
+.form-contato button:hover {
+    background-color: var(--cor-principal);
+}
+
+.mapa {
+    flex: 1;
+    min-width: 300px;
+}
+
+.mapa iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 1px;
+    min-height: 400px;
+}
+
+footer {
+    background-color: var(--cor-branco);
+    padding: 20px 0;
+    text-align: center;
+    color: var(--cor-texto);
+    font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+    .menu-hamburguer {
+        display: block;
+    }
+
+    .navegacao {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100%;
+        width: 70%;
+        background-color: whitesmoke;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 100px;
+        gap: 30px;
+        transition: right 0.3s ease;
+        z-index: 99;
+        overflow-y: auto;
+    }
+
+    .navegacao.active {
+        right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .capa {
+        height: 70vh;
+        padding: 0 10px;
+    }
+
+    .titulo-principal {
+        font-size: 3rem;
+        letter-spacing: 2px;
+    }
+
+    .subtitulo {
+        font-size: 1.2rem;
+    }
+
+    .container-sobre {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .container-imagens {
+        grid-template-columns: 1fr;
+    }
+
+    .sobre-conteudo h2 {
+        font-size: 2.5rem;
+    }
+
+    .container-projetos {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .biblioteca-imagem img {
+        width: 90%;
+        border-radius: 30%;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .capa {
+        height: 80vh;
+    }
+
+    .titulo-principal {
+        font-size: 4rem;
+    }
+
+    .subtitulo {
+        font-size: 1.5rem;
+    }
+
+    .container-sobre {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .sobre-conteudo h2 {
+        font-size: 3.5rem;
+    }
+
+    .container-projetos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .biblioteca-imagem img {
+        width: 80%;
+        border-radius: 40%;
+    }
+}
+
+@media (min-width: 769px) {
+    .capa {
+        height: 90vh;
+    }
+
+    .titulo-principal {
+        font-size: 6rem;
+    }
+
+    .subtitulo {
+        font-size: 1.8rem;
+    }
+
+    .container-sobre {
+        grid-template-columns: 1.1fr 1fr;
+        gap: 50px;
+    }
+
+    .sobre-conteudo h2 {
+        font-size: 4.5rem;
+    }
+
+    .container-projetos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .biblioteca-imagem img {
+        width: 500px;
+        border-radius: 60%;
+    }
+}

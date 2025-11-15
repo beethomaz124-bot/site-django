@@ -1,0 +1,90 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<main>
+    <section class="capa">
+        <div class="conteudo">
+            <h1 class="titulo-principal">GAM</h1>
+            <p class="subtitulo">Junte-se a nós em oficinas, projetos e ações que transformam vidas com arte e amor.</p>
+        </div>
+    </section>
+
+    <section class="sobre" id="sobre">
+        <div class="container-sobre">
+            <div class="container-imagens">
+                <p class="nota-imagem scroll-animation">ARTE<br>QUE UNE<br>E TRANSFORMA</p>
+                <img src="{% static 'imagens/galeria3Principal.avif' %}" alt="Exposição de arte no GAM Maricá">
+                <img src="{% static 'imagens/galeria4Principal.avif' %}" alt="Artistas locais em Maricá" class="imagem-2">
+            </div>
+            <div class="sobre-conteudo">
+                <h2>SOBRE O GAM</h2>
+                <p class="sobre-descricao">O <strong>Grupo de Artistas de Maricá (GAM)</strong> é uma organização sem fins lucrativos fundada em 1994, dedicada à promoção da arte, cultura e memória da cidade de Maricá/RJ.</p>
+                <p class="sobre-descricao">Com exposições, oficinas e projetos culturais, o GAM se tornou um espaço de encontro e expressão para artistas, estudantes e a comunidade, fortalecendo o papel da arte como instrumento de inclusão e transformação social.</p>
+                <p class="sobre-descricao">Localizado em Araçatiba, o grupo mantém viva a história e a criatividade da cidade, abrindo suas portas para todos que acreditam no poder da arte como caminho de conexão e cidadania.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos">
+        <h2>PROJETOS DESENVOLVIDOS</h2>
+        <div class="container-projetos scroll-animation">
+            {% for projeto in projetos %}
+            <figure>
+                <img src="{% static projeto.imagem %}" alt="{{ projeto.titulo }}">
+                <h5>{{ projeto.titulo }}</h5>
+                <p>{{ projeto.descricao }}</p>
+            </figure>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="oficinas scroll-animation" id="oficinas">
+        <div class="oficinas-header">
+            <h2>OFICINAS</h2>
+            <ul>
+                {% for oficina in oficinas %}
+                    <li><strong>{{ oficina.nome }}</strong>: {{ oficina.descricao }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="oficinas-galeria">
+            {% for img in imagens_oficinas %}
+                <img src="{% static img %}" alt="">
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="biblioteca" id="biblioteca">
+        <div class="container-biblioteca">
+            <div class="biblioteca-texto">
+                <h2>BIBLIOTECA</h2>
+                <p>Novos títulos chegaram à biblioteca!<br> Visite-nos e explore os livros que fortalecem a cultura e a criatividade local.</p>
+                <ul>
+                    {% for livro in livros %}
+                        <li>{{ livro.titulo }} - {{ livro.autor }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="biblioteca-imagem">
+                <img src="{% static 'imagens/imagem7.avif' %}" alt="Pessoas lendo livros na biblioteca comunitária">
+            </div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>CONTATO</h2>
+        <div class="contato-container">
+            <form class="form-contato" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Enviar</button>
+            </form>
+            <div class="mapa">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.682497431086!2d-42.83053872553347!3d-22.925078879242278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x99f392a5a4af8b%3A0x5278ef2d536e9e49!2sGAM%20-GRUPO%20DE%20ARTISTAS%20DE%20MARIC%C3%81!5e0!3m2!1spt-BR!2sbr!4v1762970624096!5m2!1spt-BR!2sbr"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
