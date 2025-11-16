@@ -88,17 +88,6 @@ img {
     color: var(--cor-destaque);
 }
 
-.scroll-animation {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out;
-}
-
-.scroll-animation.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .capa {
     position: relative;
     height: 90vh;
